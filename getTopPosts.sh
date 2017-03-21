@@ -26,5 +26,6 @@ echo "    </TITLE>" >> text.html
 echo "  <BODY>" >> text.html
 echo "    <H3> The number of times trump has been mentioned is: </H3> " >> text.html
 echo "    <p>$TIMES</p>" >> text.html
+echo "    <img src=\"Donald-Trump.jpg\" alt=\"The Donald\" style=\"width:500px;height:300px;\"> " >> text.html
 echo "  </BODY>" >> text.html
 echo "</HTML>" >> text.html
