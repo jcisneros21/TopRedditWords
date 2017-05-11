@@ -26,21 +26,34 @@ for sub in topPosts:
   for comment in submission.comments.list():
     strip_comment = comment.body.replace("\n\n"," ")
     strip_comment = strip_comment.replace("\n", " ")
-    if ' Donald ' or ' Donald\'s ' in comment.body:
+    if ' Donald ' in comment.body:
       if 'Glover' not in comment.body:
-        authorList.append(comment.author.name)
+        try:
+          authorList.append(comment.author.name)
+        except AttributeError:
+          authorList.append("N/A")
         donaldComments.append(strip_comment)
         comment_ranking.append(comment.score)
-    elif ' donald ' or ' donald\'s ' in comment.body:
+    elif ' donald ' in comment.body:
       if 'Glover' not in comment.body:
-        authorList.append(comment.author.name)
+        try:
+          authorList.append(comment.author.name)
+        except AttributeError:
+          authorList.append("N/A")
         donaldComments.append(strip_comment)
         comment_ranking.append(comment.score)
     elif 'Trump' in comment.body:
-      authorList.append(comment.author.name)
+      try:
+        authorList.append(comment.author.name)
+      except AttributeError:
+        authorList.append("N/A")
       donaldComments.append(strip_comment)
       comment_ranking.append(comment.score)
     elif 'trump' in comment.body:
+      try:
+        authorList.append(comment.author.name)
+      except AttributeError:
+        authorList.append("N/A")
       authorList.append(comment.author.name)
       donaldComments.append(strip_comment)
       comment_ranking.append(comment.score)
